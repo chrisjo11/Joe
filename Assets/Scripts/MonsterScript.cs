@@ -13,6 +13,8 @@ public class MonsterScript : MonoBehaviour
     private float projectileDelay;
     [SerializeField] private float delayIncreaseSuppression;
 
+    [SerializeField] private AudioSource attackAudio;
+
     void Start()
     {
         projectileDelay = startingProjectileDelay;
@@ -28,6 +30,7 @@ public class MonsterScript : MonoBehaviour
     {
         for(; ; )
         {
+            attackAudio.Play();
             projectilePrefab.GetComponent<ProjectileScript>().setRandomProjectile();
             Instantiate(projectilePrefab, this.gameObject.transform.position + new Vector3(2.3f, 0, 0), Quaternion.identity);
             yield return new WaitForSeconds(projectileDelay);

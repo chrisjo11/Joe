@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private TextMeshProUGUI timerText;
+
+    [SerializeField] private AudioSource hurtAudio;
 
 
     private float currentHealth = 250;
@@ -60,8 +63,7 @@ public class PlayerController : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            
-
+            SceneManager.LoadScene(1);
         }
     }
 
@@ -69,7 +71,7 @@ public class PlayerController : MonoBehaviour
     {
         if (TimerSingleton.Timer.currentTime > winTime)
         {
-            Debug.Log("win");
+            SceneManager.LoadScene(2);
         }
     }
 
@@ -80,6 +82,7 @@ public class PlayerController : MonoBehaviour
         {
             currentHealth = 0;
         }
+        hurtAudio.Play();
     }
 
     public float getHealth()
