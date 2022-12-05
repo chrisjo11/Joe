@@ -589,7 +589,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1561534284}
         m_TargetAssemblyTypeName: SceneSwitcher, Scripts
-        m_MethodName: changeScene
+        m_MethodName: changeSceneChase
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
