@@ -43,9 +43,10 @@ public class ProjectileScript : MonoBehaviour
         }
     }
 
-    public void setRandomProjectile()
+    public Projectile setRandomProjectile()
     {
         projectile = new Projectile((ProjectileType) (Random.Range(1, 4) * 10));
+        return projectile;
     }
 
     public Projectile getProjectile()

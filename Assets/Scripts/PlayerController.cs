@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timerText;
 
 
-    private float currentHealth;
+    private float currentHealth = 250;
 
     private void Start()
     {
@@ -58,9 +58,9 @@ public class PlayerController : MonoBehaviour
 
     private void checkIfDead()
     {
-        if (currentHealth < 0)
+        if (currentHealth <= 0)
         {
-            Debug.Log("lose");
+            
 
         }
     }
@@ -73,14 +73,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void doDamage(float damage)
+    public void doDamage(float damage)
     {
         currentHealth -= damage;
+        if (currentHealth <= damage)
+        {
+            currentHealth = 0;
+        }
     }
 
-    public float getCurrentHealth()
+    public float getHealth()
     {
         return currentHealth;
+    }
+
+    public float getMaxHealth()
+    {
+        return maxHealth;
     }
 
 }
