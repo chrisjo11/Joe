@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float speed;
-    [SerializeField] private float maxHealth;
+    [SerializeField] private float maxHealth = 250;
     [SerializeField] private float winTime;
 
     [SerializeField] private TextMeshProUGUI healthText;
@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
         if (currentHealth < 0)
         {
             Debug.Log("lose");
+
         }
     }
 
@@ -76,4 +77,10 @@ public class PlayerController : MonoBehaviour
     {
         currentHealth -= damage;
     }
+
+    public float getCurrentHealth()
+    {
+        return currentHealth;
+    }
+
 }
